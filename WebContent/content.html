@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" style="padding-left:20px; padding-right:20px;margin:0px;">
+	<div class="containe">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">MapDemo</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#about">进入首页</a></a></li>
+				<li><a href="#/start/about">关于我们</a></li>
+				<li><a href="#/start/contact">联系方式</a></li>
+				<li><a href="#/start/other">其他信息</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<!--  li ><a href="#" ng-click="printme()">TEST</a></li>-->
+				<li ng-show="UserSvc.getCurrentUser()"><a href="#" ng-click="signOut()">退出登录</a></li>
+				<li ng-show="UserSvc.getCurrentUser()"><a href="#">[ {{ UserSvc.getCurrentUser().userName }} ]</a></li>
+				<li ng-show="!UserSvc.getCurrentUser()"><a data-toggle="modal" data-target="#signInBox" href="#">用户登录</a></li>
+				<li ng-show="!UserSvc.getCurrentUser()"><a data-toggle="modal" data-target="#signUpBox" href="#">用户注册</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多内容 <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+						<li><a href="#">我的信息</a></li>
+						<li><a href="#">沪牌日历</a></li>
+						<li role="separator" class="divider"></li>
+						<li class="dropdown-header">信息</li>
+						<li><a href="/act/signOut">退出登录</a></li>
+					</ul>
+		        </li>
+		      </ul>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
+</nav>
+
+<div class="row" style="padding:0px 10px 0 0;">
+	<div style="width:200px; border-bottom:0px;
+		background:#fff;
+		height:90%;
+		border-right:1px solid #ccc; float:left; position: absolute; *position: relative;
+		margin-top:-10px;">
+		
+		<div class="list-group" style="margin:5px;">
+		  <a href="#" class="list-group-item active">
+	        
+		    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>  路面塌陷事故</h4>
+		    <p class="list-group-item-text">路面塌陷事故描述  <span class="badge">4</span></p>
+		  </a>
+		  <a href="#" class="list-group-item ">
+		    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>  路面裂缝事故</h4>
+		    <p class="list-group-item-text">路面塌陷事故描述</p>
+		  </a>
+		  <a href="#" class="list-group-item ">
+		    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>  路面下发事故</h4>
+		    <p class="list-group-item-text">路面塌陷事故描述  <span class="badge">22</span></p>
+		  </a>
+		  <a href="#" class="list-group-item ">
+		    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>  路面其他事故</h4>
+		    <p class="list-group-item-text">路面塌陷事故描述</p>
+		  </a>
+		</div>
+	</div>
+	
+	<div class="panel" style="margin-left: 210px;background:none; padding:0px; position: relative; border:0px solid #ccc;" ui-view></div>
+</div>
+</body>
+</html>
