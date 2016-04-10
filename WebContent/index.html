@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-<title>沪牌不求人</title>
+<title>道路管理演示系统</title>
 
 <!-- Bootstrap core CSS -->
 <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -30,8 +30,49 @@
 	    <![endif]-->
 </head>
 <body role="document" ng-app="myApp" class="font-hei" ng-controller="homeController" style="padding-bottom:50px;">
-	<div class="container-fluid theme-showcase" role="main">
+	<div class="container-fluid theme-showcase" role="main" style="padding:0px;">
 
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="padding-left:20px; padding-right:20px;margin:0px;">
+		<div class="containe">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">GisDemo</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active" ui-sref-active="active" ui-sref="mod1.page1"><a href="#/mod1/page1"><span class="glyphicon glyphicon-sd-video" aria-hidden="true" style="color:red"></span> 养护协同巡查系统</a></li>
+					<li ui-sref-active="active" ui-sref="mod2.page1"><a href="#/mod2/page1"><span class="glyphicon glyphicon-hd-video" aria-hidden="true" style="color:yellow"></span> 路面检测系统</a></li>
+					<li ui-sref-active="active" ui-sref="mod3.page1"><a href="#/mod3/page1"><span class="glyphicon glyphicon-subtitles" aria-hidden="true" style="color:green"></span> 新建改建道路竣工验收系统</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!--  li ><a href="#" ng-click="printme()">TEST</a></li>-->
+					<li ng-show="UserSvc.getCurrentUser()"><a href="#" ng-click="signOut()">退出登录</a></li>
+					<li ng-show="UserSvc.getCurrentUser()"><a href="#">[ {{ UserSvc.getCurrentUser().userName }} ]</a></li>
+					<li ng-show="!UserSvc.getCurrentUser()"><a data-toggle="modal" data-target="#signInBox" href="#">用户登录</a></li>
+					<li ng-show="!UserSvc.getCurrentUser()"><a data-toggle="modal" data-target="#signUpBox" href="#">用户注册</a></li>
+			        <li class="dropdown">
+			          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多内容 <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+							<li><a href="#">我的信息</a></li> 
+							<li><a href="#">路政系统1</a></li>
+							<li role="separator" class="divider"></li> 
+							<li class="dropdown-header">信息</li>
+							<li><a href="/act/signOut">退出登录</a></li>
+						</ul>
+			        </li>
+			      </ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+		
 		<div ui-view></div>
 		
 		<nav class="navbar navbar-default navbar-fixed-bottom">
@@ -39,7 +80,7 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-road" aria-hidden="true"></span></a>
 				</div>
-				<a class="navbar-brand navbar-right" href="#">网站</a>
+				<a class="navbar-brand navbar-right" href="#">路政维护演示网站</a>
 			</div>
 		</nav>
 		<!-- Bootstrap core JavaScript

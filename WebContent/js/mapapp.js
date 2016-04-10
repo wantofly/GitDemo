@@ -23,12 +23,12 @@ var myApp = angular.module('myApp', ['ui.router'])
 })
 .config(function($stateProvider,$urlRouterProvider) {  
 	  $stateProvider 
-	  .state('start', {
-	      url: '/start',
-	      templateUrl: 'content.html',
+	  .state('mod1', {
+	      url: '/mod1',
+	      templateUrl: 'mod1/content.html',
 	      controller: 'homeController'
 	  })
-	  .state('start.page1', {
+	  .state('mod1.page1', {
 		  url: '/page1',
 		  templateUrl: 'page1.html',
 		  onEnter: function(){
@@ -38,7 +38,7 @@ var myApp = angular.module('myApp', ['ui.router'])
 			  console.log('page1 exit ');
 		  }
 	  })
-	  .state('start.page2', {
+	  .state('mod1.page2', {
 		  url: '/page2',
 		  templateUrl: 'page2.html',
 		  onEnter: function(){
@@ -48,8 +48,26 @@ var myApp = angular.module('myApp', ['ui.router'])
 			  console.log('page2 exit ');
 		  }
 	  })
+	  
+	  .state('mod2', {
+		  url: '/mod2',
+		  templateUrl: 'mod2/content.html'
+	  })
+	  .state('mod2.page1', {
+		  url: '/page1',
+		  templateUrl: 'mod2/page1.html'
+	  })
+	  
+	  .state('mod3', {
+		  url: '/mod3',
+		  templateUrl: 'mod3/content.html'
+	  })
+	  .state('mod3.page1', {
+		  url: '/page1',
+		  templateUrl: 'mod3/page1.html'
+	  })
 	  ;
-	  $urlRouterProvider.otherwise('/start/page1');
+	  $urlRouterProvider.otherwise('/mod1/page1');
 	})
 ;
 
