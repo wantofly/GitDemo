@@ -49,7 +49,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active" ui-sref-active="active" ui-sref="mod1.page1"><a href="#/mod1/page1"><span class="glyphicon glyphicon-sd-video" aria-hidden="true" style="color:red"></span> 养护协同巡查系统</a></li>
 					<li ui-sref-active="active" ui-sref="mod2.page1"><a href="#/mod2/page1"><span class="glyphicon glyphicon-hd-video" aria-hidden="true" style="color:yellow"></span> 路面检测系统</a></li>
-					<li ui-sref-active="active" ui-sref="mod3.page1"><a href="#/mod3/page1"><span class="glyphicon glyphicon-subtitles" aria-hidden="true" style="color:green"></span> 新建改建道路竣工验收系统</a></li>
+					<li ui-sref-active="active" ui-sref="mod3.page1"><a href="#/mod3/page1"><span class="glyphicon glyphicon-subtitles" aria-hidden="true" style="color:#22ff22"></span> 新建改建道路竣工验收系统</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<!--  li ><a href="#" ng-click="printme()">TEST</a></li>-->
@@ -83,6 +83,10 @@
 				<a class="navbar-brand navbar-right" href="#">路政维护演示网站</a>
 			</div>
 		</nav>
+		
+		
+		<div ng-include="'common/des1.html'" ></div>
+		
 		<!-- Bootstrap core JavaScript
 	    ================================================== -->
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
@@ -92,6 +96,9 @@
 		<script src="//cdn.bootcss.com/angular.js/1.2.0/angular-route.min.js"></script>
 		<script src="//cdn.bootcss.com/angular-ui-router/1.0.0-alpha0/angular-ui-router.js"></script>
 		
+		<!-- http://cdn.hcharts.cn/ -->
+		<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+		<!-- script src="js/d3.v4.0.0-alpha.24.min.js"></script -->
 		<script src="js/mapapp.js"></script>
 
 	</div>

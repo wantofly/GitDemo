@@ -30,7 +30,7 @@ var myApp = angular.module('myApp', ['ui.router'])
 	  })
 	  .state('mod1.page1', {
 		  url: '/page1',
-		  templateUrl: 'page1.html',
+		  templateUrl: 'mod1/page1.html',
 		  onEnter: function(){
 			  console.log('page1 enter');
 		  },
@@ -40,7 +40,7 @@ var myApp = angular.module('myApp', ['ui.router'])
 	  })
 	  .state('mod1.page2', {
 		  url: '/page2',
-		  templateUrl: 'page2.html',
+		  templateUrl: 'mod1/page2.html',
 		  onEnter: function(){
 			  console.log('page2 enter');
 		  },
