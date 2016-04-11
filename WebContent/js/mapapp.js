@@ -41,12 +41,14 @@ var myApp = angular.module('myApp', ['ui.router'])
 	  .state('mod1.page2', {
 		  url: '/page2',
 		  templateUrl: 'mod1/page2.html',
-		  onEnter: function(){
-			  console.log('page2 enter');
-		  },
-		  onExit: function(){
-			  console.log('page2 exit ');
-		  }
+	  })
+	  .state('mod1.page3', {
+		  url: '/page3',
+		  templateUrl: 'mod1/page3.html',
+	  })
+	  .state('mod1.page4', {
+		  url: '/page4',
+		  templateUrl: 'mod1/page4.html',
 	  })
 	  
 	  .state('mod2', {
