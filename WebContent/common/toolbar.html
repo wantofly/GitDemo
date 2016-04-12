@@ -82,5 +82,13 @@
 		    <!-- span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>  您还有<span style="color:red;font-size:2em;"> 3 </span>个月的使用机会 -->
 		  </div>
 		</div>
-
+<script type="text/javascript">
+$("#userinfoTab li").on("click",function(e){
+	alert('asdf');
+	$("#userinfoTab li").removeClass('active');
+	$(e.target).addClass('active');
+});
+</script>
 	</div>
+	
+</body>

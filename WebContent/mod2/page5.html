@@ -67,7 +67,7 @@
 	// 百度地图API功能
 	var map = new BMap.Map("allmap", {mapType:BMAP_SATELLITE_MAP});
 	var point = new BMap.Point(116.422102,39.983142);
-	map.centerAndZoom(point, 17);
+	map.centerAndZoom(point, 18);
 
 	//map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
 	map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
@@ -118,8 +118,8 @@
 	addMarker(plist[1]);
 	addMarker(plist[2]);
 	
-	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
-	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
+	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.5});   //创建折线
+	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.5});   //创建折线
 	
 	map.addOverlay(polylineA);
 	map.addOverlay(polylineB);
@@ -146,7 +146,7 @@
 		}else{
 			current_gpos = index;
 		}
-		map.centerAndZoom(plist[index], 17);
+		map.centerAndZoom(plist[index], 18);
 	});
 //////////////////////////////////////////////////////////////////////////////
 	
@@ -209,6 +209,7 @@
         heatmapOverlay.setOptions({"gradient":gradient});
     }
     heatmapOverlay.show();
+    //heatmapOverlay.hide();
     /////////////////////////////////////////////////////////////////////////////
     
 	// 定义一个控件类,即function
@@ -224,17 +225,35 @@
 	// 自定义控件必须实现自己的initialize方法,并且将控件的DOM元素返回
 	// 在本方法中创建个div元素作为控件的容器,并将其添加到地图容器中
 	ZoomControl.prototype.initialize = function(map){
+		
+		
 	  // 创建一个DOM元素
 	  var div = document.createElement("div");
-	  // 添加文字说明
-	  div.appendChild(document.createTextNode(" 显示2年后的展望 "));
+	  
+	  $("<button type='button' id='btn2' class='btn btn-info' style='margin:5px;clear:both;float:left;display:block;'>显示2年后的展望</button>").appendTo(div);
+	  $("<button type='button' id='btn5' class='btn btn-warning' style='margin:0 5px 5px 5px;clear:both;float:left;display:block;'>显示5年后的展望</button>").appendTo(div);
+	  
 	  // 设置样式
 	  div.style.cursor = "pointer";
 	  div.style.border = "1px solid gray";
-	  div.style.backgroundColor = "white";
+	  div.style.backgroundColor = "";
+	  //div.style.boxShadow="3px 3px 1px #999";
 	  // 绑定事件,点击一次放大两级
 	  div.onclick = function(e){
-		map.setZoom(map.getZoom() + 2);
+		//map.setZoom(map.getZoom() + 2);
+		console.log(e.target.id);
+		heatmapOverlay.hide();
+		if (e.target.id == 'btn2'){
+			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":30});
+			map.addOverlay(heatmapOverlay);
+			heatmapOverlay.setDataSet({data:points,max:100});
+			
+		}else{
+			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":60});
+			map.addOverlay(heatmapOverlay);
+			heatmapOverlay.setDataSet({data:points,max:100});
+		}
+		heatmapOverlay.show();
 	  }
 	  // 添加DOM元素到地图中
 	  map.getContainer().appendChild(div);
@@ -253,7 +272,7 @@
 //	var myIcon = new BMap.Icon("http://developer.baidu.com/map/jsdemo/img/fox.gif", new BMap.Size(300,157));
 	var myIcon = new BMap.Icon("img/tag1.png", new BMap.Size(300,287));
 	var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
-	map.addOverlay(marker2);              // 将标注添加到地图中
+	//map.addOverlay(marker2);              // 将标注添加到地图中
     
 </script>
 

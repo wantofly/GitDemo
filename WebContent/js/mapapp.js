@@ -59,6 +59,24 @@ var myApp = angular.module('myApp', ['ui.router'])
 		  url: '/page1',
 		  templateUrl: 'mod2/page1.html'
 	  })
+	  .state('mod2.page2', {
+		  url: '/page2',
+		  templateUrl: 'mod2/page2.html',
+	  })
+	  .state('mod2.page3', {
+		  url: '/page3',
+		  templateUrl: 'mod2/page3.html',
+	  })
+	  .state('mod2.page4', {
+		  url: '/page4',
+		  templateUrl: 'mod2/page4.html',
+	  })
+	  .state('mod2.page5', {
+		  url: '/page5',
+		  templateUrl: 'mod2/page5.html',
+	  })
+	  
+	  
 	  
 	  .state('mod3', {
 		  url: '/mod3',

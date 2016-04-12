@@ -36,13 +36,8 @@
 </div>
 
 <div id="allmap" class="panel" style="border:1px solid #ccc;  height:400px; width: 100%;margin-bottom:0px;"></div>
-<div class="row" style="padding:10px; margin:0px;">
-		<div class="page-header">
-			<h2>技巧</h2>
-		</div>
-
-		<div class="row">
-		</div>
+<div class="row" style="padding:0px; margin:10px 0 0 0;border:0px solid #ccc;" >
+		<div class="panel" id="charts1" style="height:300px;padding:0px;border:1px solid #ccc;"></div>
 </div>
 <script type="text/javascript">
 	var opts = {
@@ -150,6 +145,54 @@
 		
 		
 		   
+</script>
+
+
+<script type="text/javascript">
+$(function () {
+    $('#charts1').highcharts({
+        title: {
+            text: '路面情况比较',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '路面维修数据源',
+            x: -20
+        },
+        xAxis: {
+            categories: ['桩号A', '桩号B', '桩号C', '桩号D', '桩号E', '桩号F','桩号G', '桩号H', '桩号I', '桩号J', '桩号K', '桩号L']
+        },
+        yAxis: {
+            title: {
+                text: '程度'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '度'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 1
+        },
+        series: [{
+            name: '天山路',
+            data: [7.0, 6.9, 19.5, 24.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+            name: '山北路',
+            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+        }, {
+            name: '天仙路',
+            data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 13.9, 9.0]
+        }]
+    });
+});
 </script>
 
 
