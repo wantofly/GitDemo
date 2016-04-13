@@ -43,6 +43,11 @@
 		</div>
 
 		<div class="row">
+		<ul><li>绿色表示道路无需维修；</li><li>
+青色表示道路需要小修；</li><li>
+黄色表示道路需要中修；</li><li>
+红色表示道路需要大修。</li>
+		</li></ul>
 		</div>
 </div>
 <script type="text/javascript">
@@ -232,6 +237,7 @@
 	  
 	  $("<button type='button' id='btn2' class='btn btn-info' style='margin:5px;clear:both;float:left;display:block;'>显示2年后的展望</button>").appendTo(div);
 	  $("<button type='button' id='btn5' class='btn btn-warning' style='margin:0 5px 5px 5px;clear:both;float:left;display:block;'>显示5年后的展望</button>").appendTo(div);
+	  $("<button type='button' id='btn8' class='btn btn-danger' style='margin:0 5px 5px 5px;clear:both;float:left;display:block;'>显示8年后的展望</button>").appendTo(div);
 	  
 	  // 设置样式
 	  div.style.cursor = "pointer";
@@ -248,8 +254,12 @@
 			map.addOverlay(heatmapOverlay);
 			heatmapOverlay.setDataSet({data:points,max:100});
 			
-		}else{
+		}else if (e.target.id == 'btn5'){
 			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":60});
+			map.addOverlay(heatmapOverlay);
+			heatmapOverlay.setDataSet({data:points,max:100});
+		}else{
+			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":80});
 			map.addOverlay(heatmapOverlay);
 			heatmapOverlay.setDataSet({data:points,max:100});
 		}
