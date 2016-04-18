@@ -37,6 +37,7 @@
 
 <div class="row" style="padding:0px; margin:10px 0 0 0;border:0px solid #ccc;" >
 		<div class="panel" id="charts1" style="height:300px;padding:0px;border:1px solid #ccc;"></div>
+		<div class="panel" id="charts2" style="height:300px;padding:0px;border:1px solid #ccc;"></div>
 </div>
 <div class="row panel" style="padding:5px; margin:0px 0 0 0; border:1px solid #bbb;" >
 		<form class="navbar-form navbar-right" role="search" style="border-bottom:0px solid #ccc;">
@@ -162,13 +163,12 @@
 
 <script type="text/javascript">
 var opts = {
-		width : 350,     // 信息窗口宽度
-		height: 100,     // 信息窗口高度
-		title : "监测点" , // 信息窗口标题
+		width : 100,     // 信息窗口宽度
+		height: 50,     // 信息窗口高度
+		title : "弯沉测试" , // 信息窗口标题
 		enableMessage:true//设置允许信息窗发送短息
 	   };
 	var sContent =
-		"<img style='float:right;margin:4px' id='imgDemo' src='img/lm1.jpg' width='139' height='104' title=' '/>" + 
 		"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>数据：6+201"+
 		"</div>";
 	var infoWindow = new BMap.InfoWindow(sContent, opts);  // 创建信息窗口对象
@@ -208,32 +208,28 @@ var opts = {
 	//var marker2 = new BMap.Marker(pt,{icon:myIcon});
 	
 	var plist = [
-					new BMap.Point(116.420552,39.983211),
-					new BMap.Point(116.415073,39.983211),
-					new BMap.Point(116.415782,39.983211),
-					new BMap.Point(116.416681,39.983204),
-					new BMap.Point(116.417516,39.983184),
-					new BMap.Point(116.418495,39.983197),
-					new BMap.Point(116.420166,39.983177),
-					new BMap.Point(116.420984,39.983184),
-					new BMap.Point(116.422879,39.983177),
-					new BMap.Point(116.42367,39.983142),
-					new BMap.Point(116.424505,39.983163),
-	                new BMap.Point(116.416303,39.983439),
-	                new BMap.Point(116.419443,39.983128),
-	                new BMap.Point(116.422102,39.983142),
-	                
-	        		new BMap.Point(116.415073,39.983481),
-	        		new BMap.Point(116.415773,39.983474),
-	        		new BMap.Point(116.416672,39.983474),
-	        		new BMap.Point(116.41748,39.98346),
-	        		new BMap.Point(116.418468,39.983446),
-	        		new BMap.Point(116.419439,39.983446),
-	        		new BMap.Point(116.420552,39.983453),
-	        		new BMap.Point(116.42208,39.98346),
-	        		new BMap.Point(116.422915,39.983467),
-	        		new BMap.Point(116.423643,39.983425),
-	        		new BMap.Point(116.424478,39.983446),
+new BMap.Point(116.417498,39.983110),
+new BMap.Point(116.418498,39.983110),
+new BMap.Point(116.419498,39.983110),
+new BMap.Point(116.420498,39.983110),
+new BMap.Point(116.421498,39.983110),
+new BMap.Point(116.422498,39.983110),
+new BMap.Point(116.423498,39.983110),
+new BMap.Point(116.424498,39.983110),
+new BMap.Point(116.425498,39.983110),
+new BMap.Point(116.426498,39.983110),
+
+new BMap.Point(116.417498,39.983363),
+new BMap.Point(116.418498,39.983363),
+new BMap.Point(116.419498,39.983363),
+new BMap.Point(116.420498,39.983363),
+new BMap.Point(116.421498,39.983363),
+new BMap.Point(116.422498,39.983363),
+new BMap.Point(116.423498,39.983363),
+new BMap.Point(116.424498,39.983363),
+new BMap.Point(116.425498,39.983363),
+new BMap.Point(116.426498,39.983363),
+
 	                 ];
 	var plistRoadA = [
 		            new BMap.Point(116.408174,39.983397),
@@ -253,8 +249,8 @@ var opts = {
 		markList.push(addMarker(plist[i]));//.setLabel(label);
 	}
 	
-	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.7});   //创建折线
-	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.7});   //创建折线
+	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.4});   //创建折线
+	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.4});   //创建折线
 	
 	map.addOverlay(polylineA);
 	map.addOverlay(polylineB);
@@ -305,7 +301,73 @@ $(function () {
             x: -20
         },
         xAxis: [{
+            categories: ['6+370', '6+370', '6+370', '6+320', '6+310', '6+270', '6+170', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370']
+        },{
+        	opposite: true,
             categories: ['桩号A', '桩号B', '桩号C', '桩号D', '桩号E', '桩号F','桩号G', '桩号H', '桩号I', '桩号J', '桩号K', '桩号L']
+        }],
+        yAxis: {
+            title: {
+                text: '程度'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '度'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 1
+        },
+        series: [{
+            name: '西东',
+            data: [-20.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 2, 14.1, 8.6, 2.5, 10, 18.3, 13.9, 9.6]
+        }],
+        chart: {
+        	events: {
+	            click: function (event) 
+	            {
+	            	//alert(event.target);
+	            	console.log(event.target);
+	            }
+        	},
+        	
+        },
+        plotOptions :{
+        	series:{
+        		events:{
+        			click: function(event) {
+        				current_gpos++;
+        				if (current_gpos==markList.length) current_gpos = 0;
+        				map.centerAndZoom(plist[current_gpos], 18);
+        				markList[current_gpos].openInfoWindow(infoWindow);//图片加载完毕重绘infowindow
+        				
+        			}
+        		}
+        	}
+        },
+        
+    });
+    
+    
+    
+    $('#charts2').highcharts({
+        title: {
+            text: '弯沉能力测试',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '路面维修数据源',
+            x: -20
+        },
+        xAxis: [{
+            categories: ['6+370', '6+370', '6+370', '6+320', '6+310', '6+270', '6+170', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370', '6+370']
         },{
         	opposite: true,
             categories: ['桩号A', '桩号B', '桩号C', '桩号D', '桩号E', '桩号F','桩号G', '桩号H', '桩号I', '桩号J', '桩号K', '桩号L']
@@ -331,10 +393,7 @@ $(function () {
         },
         series: [{
             name: '东西',
-            data: [27.0, 6.9, 19.5, 3, 0, -2.5, 2.2, 2.5, 10, 18.3, 13.9, 9.6]
-        }, {
-            name: '西东',
-            data: [-20.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 2, 14.1, 8.6, 2.5]
+            data: [27.0, 6.9, 19.5, 3, 0, -2.5, 2.2, 2.5, 10, 18.3, 13.9, 9.6, 10, 18.3, 13.9, 9.6]
         }],
         chart: {
         	events: {

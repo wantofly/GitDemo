@@ -6,7 +6,7 @@
 </head>
 <body>
 
-
+<div id="allmap" class="panel" style="border:1px solid #ccc;  height:600px; width: 100%;margin-bottom:0px;"></div>
 
 <div id="" class="panel" style="border:1px solid #ccc;border-top:0px; height:90px; width: 100%; margin:0px 0px 10px 0;">
 				<div class="bs-glyphicons" style="padding:10px;">
@@ -36,18 +36,13 @@
 
 </div>
 
-<div id="allmap" class="panel" style="border:1px solid #ccc;  height:400px; width: 100%;margin-bottom:0px;"></div>
 <div class="row" style="padding:10px; margin:0px;">
-		<div class="page-header">
-			<h2>技巧</h2>
-		</div>
-
 		<div class="row">
-		<ul><li>绿色表示道路无需维修；</li><li>
-青色表示道路需要小修；</li><li>
-黄色表示道路需要中修；</li><li>
-红色表示道路需要大修。</li>
-		</li></ul>
+		<ul class="list-group">
+		<li class="list-group-item"><span class="glyphicon glyphicon-bookmark" style="color:green;"></span> 绿色表示道路需要小修；</li>
+		<li class="list-group-item"><span class="glyphicon glyphicon-bookmark" style="color:yellow;"></span> 黄色表示道路需要中修；</li>
+		<li class="list-group-item"><span class="glyphicon glyphicon-bookmark" style="color:red;"></span> 红色表示道路需要大修。</li></li>
+		</ul>
 		</div>
 </div>
 <script type="text/javascript">
@@ -117,17 +112,23 @@
 					new BMap.Point(116.424083,39.983142),
 					new BMap.Point(116.431107,39.983155),
 	                 ];
+	var plistRoadC = [
+					new BMap.Point(116.417328,39.983384),
+					new BMap.Point(116.419672,39.98337),
+	                 ];
 	
 	
 	addMarker(plist[0]); //.setLabel(label);
 	addMarker(plist[1]);
 	addMarker(plist[2]);
 	
-	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.5});   //创建折线
-	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.5});   //创建折线
+	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
+	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
+	var polylineC = new BMap.Polyline(plistRoadC, {strokeColor:"red", strokeWeight:25, strokeOpacity:0.7});   //创建折线
 	
 	map.addOverlay(polylineA);
 	map.addOverlay(polylineB);
+	//map.addOverlay(polylineC);
 	
 	//单击获取点击的经纬度
 	map.addEventListener("click",function(e){
@@ -154,9 +155,6 @@
 		map.centerAndZoom(plist[index], 18);
 	});
 //////////////////////////////////////////////////////////////////////////////
-	
-
-	
 
 	var points =[
              {"lng":116.41386,"lat":39.983169,"count":100},
@@ -255,11 +253,11 @@
 			heatmapOverlay.setDataSet({data:points,max:100});
 			
 		}else if (e.target.id == 'btn5'){
-			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":60});
+			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":40});
 			map.addOverlay(heatmapOverlay);
 			heatmapOverlay.setDataSet({data:points,max:100});
 		}else{
-			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":80});
+			heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":50});
 			map.addOverlay(heatmapOverlay);
 			heatmapOverlay.setDataSet({data:points,max:100});
 		}

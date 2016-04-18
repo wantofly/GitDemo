@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div id="allmap" class="panel" style="border:1px solid #ccc;  height:400px; width: 100%;margin-bottom:0px;"></div>
+<div id="allmap" class="panel" style="border:1px solid #ccc;  height:600px; width: 100%;margin-bottom:0px;"></div>
 
 <div id="" class="panel" style="border:1px solid #ccc;border-top:0px; height:90px; width: 100%; margin:0px 0px 10px 0;">
 				<div class="bs-glyphicons" style="padding:10px;">
@@ -36,7 +36,7 @@
 
 </div>
 
-<div class="row" style="padding:0 10px; margin:0px;">
+<div class="row" style="padding:0 10px; margin:0px; display:none;">
 		<div class="page-header">
 			<h2>信息</h2>
 		</div>
@@ -139,8 +139,8 @@
 	addMarker(plist[1]);
 	addMarker(plist[2]);
 	
-	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.7});   //创建折线
-	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.7});   //创建折线
+	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
+	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
 	
 	map.addOverlay(polylineA);
 	map.addOverlay(polylineB);

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div id="allmap" class="panel" style="border:1px solid #ccc;  height:400px; width: 100%;margin-bottom:0px;"></div>
+<div id="allmap" class="panel" style="border:1px solid #ccc;  height:600px; width: 100%;margin-bottom:0px;"></div>
 
 <div id="" class="panel" style="border:1px solid #ccc;border-top:0px; height:90px; width: 100%; margin:0px 0px 10px 0;">
 				<div class="bs-glyphicons" style="padding:10px;">
@@ -38,7 +38,7 @@
 
 <div class="row" style="padding:10px; margin:0px;">
 		<div class="page-header">
-			<h2>技巧</h2>
+			<h2>数据源</h2>
 		</div>
 
 		<div class="row">
@@ -52,12 +52,11 @@
 		enableMessage:true//设置允许信息窗发送短息
 	   };
 	var sContent =
-		"<img style='float:right;margin:4px' id='imgDemo' src='img/tx1.jpg' width='139' height='104' title=' '/>" + 
-		"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>2016年1月1日在某市某路发生了道路塌陷事件。塌陷路面约有50平方米大小，最深处约3米。"+
+		"<img style='float:right;margin:4px' id='imgDemo' src='img/tx3.jpg' width='139' height='104' title=' '/>" + 
+		"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>外圈道路下部0.9m、1.6m、2.9m处有高含水层，分布于该自来水管道左右的约30米范围。"+
 		"<button type='button' class='btn btn-primary' onclick='javascript:$(\"#desModalBox3\").modal({});'>查看详细</button></p>" +
 		"</div>";
 	var infoWindow = new BMap.InfoWindow(sContent, opts);  // 创建信息窗口对象
-
 
 
 	// 百度地图API功能
@@ -114,8 +113,8 @@
 	addMarker(plist[1]);
 	addMarker(plist[2]);
 	
-	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.7});   //创建折线
-	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.7});   //创建折线
+	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
+	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
 	
 	map.addOverlay(polylineA);
 	map.addOverlay(polylineB);

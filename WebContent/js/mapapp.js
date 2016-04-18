@@ -86,6 +86,22 @@ var myApp = angular.module('myApp', ['ui.router'])
 		  url: '/page1',
 		  templateUrl: 'mod3/page1.html'
 	  })
+	  .state('mod3.page2', {
+		  url: '/page2',
+		  templateUrl: 'mod3/page2.html'
+	  })
+	  .state('mod3.page3', {
+		  url: '/page3',
+		  templateUrl: 'mod3/page3.html'
+	  })
+	  .state('mod3.page4', {
+		  url: '/page4',
+		  templateUrl: 'mod3/page4.html'
+	  })
+	  .state('mod3.page5', {
+		  url: '/page5',
+		  templateUrl: 'mod3/page5.html'
+	  })
 	  ;
 	  $urlRouterProvider.otherwise('/mod1/page1');
 	})
