@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="row" style="padding:0px; margin:10px 0 0 0px;border:0px solid #ccc;" >
+		<div class="panel col-md-4" id="container" style="width:30%!important;height:300px;padding:0px;border:1px solid #ccc;"></div>
+		<div class="panel col-md-6" id="" style="width:69%!important;height:300px;padding:0px 0 0 10px; margin-left:10px; border:1px solid #ccc;">
+		<!-- Table -->
+	  	<table class="table table-striped" style="border:0px solid #ccc;">
+			<thead>
+				<tr>
+					<th>道路</th>
+					<th>好的建议</th>
+					<th>返回建议</th>
+					<th>不好的意见</th>
+					<th>测点路面材料</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>道路1</td>
+					<td align="left">90.0</td>
+					<td>2</td>
+					<td>12</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>道路2</td>
+					<td>15</td>
+					<td>25</td>
+					<td>112</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>道路3</td>
+					<td>8</td>
+					<td>25</td>
+					<td>12</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>道路4</td>
+					<td>99.0</td>
+					<td>36</td>
+					<td>12</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		</div>
+</div>
+
+<div class="row" style="padding:0px; margin:10px 0 0 0px;border:0px solid #ccc;" >
+		<div class="panel col-md-4" id="container2" style="width:30%!important;height:300px;padding:0px;border:1px solid #ccc;"></div>
+		<div class="panel col-md-6" id="" style="width:69%!important;height:300px;padding:0px 0 0 10px; margin-left:10px; border:1px solid #ccc;">
+		<!-- Table -->
+	  	<table class="table table-striped" style="border:0px solid #ccc;">
+			<thead>
+				<tr>
+					<th>道路</th>
+					<th>好的建议</th>
+					<th>返回建议</th>
+					<th>不好的意见</th>
+					<th>测点路面材料</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>道路1</td>
+					<td align="left">90.0</td>
+					<td>2</td>
+					<td>12</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>道路2</td>
+					<td>15</td>
+					<td>25</td>
+					<td>12</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>道路3</td>
+					<td>8</td>
+					<td>25</td>
+					<td>12</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>道路4</td>
+					<td>99.0</td>
+					<td>36</td>
+					<td>12</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		</div>
+</div>
+
+
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+    	 chart: {
+             type: 'pie',
+             options3d: {
+                 enabled: true,
+                 alpha: 45,
+                 beta: 0
+             }
+         },
+         title: {
+             text: '道路建议统计-道路A'
+         },
+         tooltip: {
+             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+         },
+         plotOptions: {
+             pie: {
+                 allowPointSelect: true,
+                 cursor: 'pointer',
+                 depth: 35,
+                 dataLabels: {
+                     enabled: true,
+                     format: '{point.name}'
+                 }
+             }
+         },
+         series: [{
+             type: 'pie',
+             name: 'Browser share',
+             data: [
+                 ['情况1',   45.0],
+                 ['情况2',       26.8],
+                 {
+                     name: '情况3',
+                     y: 12.8,
+                     sliced: true,
+                     selected: true
+                 },
+                 ['好的路段',    8.5],
+                 ['有问题的路段',     6.2],
+                 ['其他情况',   0.7]
+             ]
+         }]
+     });
+    $('#container2').highcharts({
+    	 chart: {
+             type: 'pie',
+             options3d: {
+                 enabled: true,
+                 alpha: 45,
+                 beta: 0
+             }
+         },
+         title: {
+             text: '道路建议统计-道路B'
+         },
+         tooltip: {
+             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+         },
+         plotOptions: {
+             pie: {
+                 allowPointSelect: true,
+                 cursor: 'pointer',
+                 depth: 35,
+                 dataLabels: {
+                     enabled: true,
+                     format: '{point.name}'
+                 }
+             }
+         },
+         series: [{
+             type: 'pie',
+             name: 'Browser share',
+             data: [
+                 ['情况1',   25.7],
+                 {
+                     name: '情况3',
+                     y: 12.8,
+                     sliced: true,
+                     selected: true
+                 },
+                 ['好的路段',    28.5],
+                 ['有问题的路段',     6.2],
+                 ['其他情况',   26.8]
+             ]
+         }]
+     });
+});
+</script>
+</body>
+</html>

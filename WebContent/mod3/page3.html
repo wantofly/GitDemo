@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="row" style="padding:0px; margin:10px 0 0 0;border:0px solid #ccc;" >
+		<div class="panel" id="charts31" style="height:300px;padding:0px;border:1px solid #ccc;"></div>
+</div>
+<div class="row panel" style="padding:5px; margin:0px 0 0 0; border:1px solid #bbb;" >
+		<form class="navbar-form navbar-right" role="search" style="border-bottom:0px solid #ccc;">
+		  <div class="form-group">
+		    <input type="text" class="form-control" placeholder="桩号">
+		  </div>
+		  <button type="submit" class="btn btn-default">搜索桩号</button>
+		</form>
+	 	<!-- Table -->
+	  	<table class="table table-striped" style="border:0px solid #ccc;">
+			<thead>
+				<tr>
+					<th>部门</th>
+					<th>下载</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>监测部门（主体）</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>监测部门（协调）</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>现场执行部门</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>决策部门（主体）</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+				<tr>
+					<td>决策部门（协调）</td>
+					<td><a href="img/Report16.pdf" target="_blank">下载报告</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul class="pager">
+				<li class="previous"><a href=""><span aria-hidden="true">&larr;</span>
+						上一页</a></li>
+				<li class="next"><a href="">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+			</ul>
+		</nav>
+</div>
+
+
+<script type="text/javascript">
+
+$(function () {
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'charts31',
+            events: {
+                load: function () {
+                    
+                    // Draw the flow chart
+                    var ren = this.renderer,
+                        colors = Highcharts.getOptions().colors,
+                        rightArrow = ['M', 0, 0, 'L', 100, 0, 'L', 95, 5, 'M', 100, 0, 'L', 95, -5],
+                        leftArrow = ['M', 100, 0, 'L', 0, 0, 'L', 5, 5, 'M', 0, 0, 'L', 5, -5];
+                    
+                    
+                    
+                    // Separator, client from service
+                    ren.path(['M', 120, 40, 'L', 120, 330])
+                        .attr({
+                            'stroke-width': 2,
+                            stroke: 'silver',
+                            dashstyle: 'dash'
+                        })
+                        .add();
+                    
+                    // Separator, CLI from service
+                    ren.path(['M', 420, 40, 'L', 420, 330])
+                        .attr({
+                            'stroke-width': 2,
+                            stroke: 'silver',
+                            dashstyle: 'dash'
+                        })
+                        .add();
+                    
+                    // Headers
+                    ren.label('上级决策部门', 20, 40)
+                        .css({
+                            fontWeight: 'bold'
+                        })
+                        .add();
+                    ren.label('平台监测部门', 220, 40)
+                        .css({
+                            fontWeight: 'bold'
+                        })
+                        .add();
+                    ren.label('现场执行部门', 440, 40)
+                        .css({
+                            fontWeight: 'bold'
+                        })
+                        .add();
+        
+                    // SaaS client label
+                    ren.label('决策部门<br/>（主体）', 10, 82)
+                        .attr({
+                            fill: colors[0],
+                            stroke: 'white',
+                            'stroke-width': 2,
+                            padding: 5,
+                            r: 5
+                        })
+                        .css({
+                            color: 'white'
+                        })
+                        .add()
+                        .shadow(true);
+                    
+                    // Arrow from SaaS client to Phantom JS
+                    ren.path(rightArrow)
+                         .attr({
+                             'stroke-width': 2,
+                             stroke: colors[3]
+                         })
+                        .translate(95, 95)
+                        .add();
+                             
+                    ren.label('传递事件决策', 90, 75)
+                        .css({
+                            fontSize: '10px',
+                            color: colors[3]
+                        }) 
+                        .add();
+                    
+                     ren.label('发布维修指令', 330, 100)
+                        .css({
+                            color: colors[2],
+                            fontSize: '10px'
+                        })
+                        .add();
+                    
+                    ren.label('监测部门（主体）', 210, 82)
+                        .attr({
+                            r: 5,
+                            width: 100,
+                            fill: colors[1]
+                        })
+                        .css({
+                            color: 'white',
+                            fontWeight: 'bold'
+                        })
+                        .add();
+                    
+                    // Arrow from Phantom JS to Batik
+                    ren.path(['M', 250, 110, 'L', 250, 185, 'L', 245, 180, 'M', 250, 185, 'L', 255, 180])
+                         .attr({
+                             'stroke-width': 2,
+                             stroke: colors[3]
+                         })
+                         .add();
+                             
+                    ren.label('协调配合指令', 255, 120)
+                        .css({
+                            color: colors[3],
+                            fontSize: '10px'
+                        })                       
+                        .add();
+                    
+                    ren.label('监测部门（协调）', 210, 200)
+                        .attr({
+                            r: 5,
+                            width: 100,
+                            fill: colors[1]
+                        })
+                        .css({
+                            color: 'white',
+                            fontWeight: 'bold'
+                        })
+                        .add();
+                    
+                    // Arrow from Batik to SaaS client
+                    ren.path(['M', 235, 185, 'L', 235, 155, 'C', 235, 130, 235, 130, 215, 130, 
+                              'L', 95, 130, 'L', 100, 125, 'M', 95, 130, 'L', 100, 135])
+                         .attr({
+                             'stroke-width': 2,
+                             stroke: colors[3]
+                         })
+                         .add();
+                             
+                    ren.label('协调意见反馈', 100, 110)
+                        .css({
+                            color: colors[3],
+                            fontSize: '10px'
+                        })                       
+                        .add();
+                    
+                    // Browser label
+                    ren.label('决策部门<br/>（协调）', 10, 180)
+                        .attr({
+                            fill: colors[0],
+                            stroke: 'white',
+                            'stroke-width': 2,
+                            padding: 5,
+                            r: 5
+                        })
+                        .css({
+                            color: 'white',
+                            width: '100px'
+                        })
+                        .add()
+                        .shadow(true);
+                    
+                    
+                    
+                    // Arrow from Browser to Batik
+                    ren.path(rightArrow)
+                         .attr({
+                             'stroke-width': 2,
+                             stroke: colors[1]
+                         })
+                        .translate(95, 205)
+                         .add();
+                             
+                    ren.label('传递协调决策', 110, 185)
+                        .css({
+                            color: colors[1],
+                            fontSize: '10px'
+                        })
+                        .add();
+                    
+                    // Arrow from Batik to Browser
+                    ren.path(leftArrow)
+                         .attr({
+                             'stroke-width': 2,
+                             stroke: colors[1]
+                         })
+                        .translate(95, 215)
+                         .add();
+                             
+                    ren.label('传递协调指令', 100, 215)
+                        .css({
+                            color: colors[1],
+                            fontSize: '10px'
+                        })
+                        .add();
+                    
+                    // Script label
+                    ren.label('执行维护', 450, 82)
+                        .attr({
+                            fill: colors[2],
+                            stroke: 'white',
+                            'stroke-width': 2,
+                            padding: 5,
+                            r: 5
+                        })
+                        .css({
+                            color: 'white',
+                            width: '100px'
+                        })
+                        .add()
+                        .shadow(true);
+                    
+                    // Arrow from Script to PhantomJS
+                    ren.path(leftArrow)
+                         .attr({
+                             'stroke-width': 2,
+                             stroke: colors[2]
+                         })
+                        .translate(330, 90)
+                         .add();
+                             
+                    ren.label('上传现场信息', 340, 70)
+                        .css({
+                            color: colors[2],
+                            fontSize: '10px'
+                        })
+                        .add();
+                    
+                    // Arrow from PhantomJS to Script
+                    ren.path(rightArrow)
+                         .attr({
+                             'stroke-width': 2,
+                             stroke: colors[2]
+                         })
+                        .translate(330, 100)
+                         .add();
+                             
+                    ren.label('发布维修指令', 330, 100)
+                        .css({
+                            color: colors[2],
+                            fontSize: '10px'
+                        })
+                        .add();
+                    
+                    
+                }
+            }
+        },
+        title: {
+            text: ''
+        }
+            
+    });
+});	
+</script>
+</body>
+</html>

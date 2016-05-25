@@ -6,6 +6,7 @@
 </head>
 <body>
 
+<div id="allmap" class="panel" style="border:1px solid #ccc; height:600px; width: 100%;"></div>
 <div id="" class="panel" style="border:1px solid #ccc;border-top:0px; height:90px; width: 100%; margin:0px 0px 10px 0;">
 				<div class="bs-glyphicons" style="padding:10px;">
 					  	<ul class="bs-glyphicons-list" >
@@ -33,7 +34,6 @@
 			        </div>
 
 </div>
-<div id="allmap" class="panel" style="border:1px solid #ccc; height:400px; width: 100%;"></div>
 
 <div class="row" style="padding:0px; margin:10px 0 0 0;border:0px solid #ccc;" >
 		<div class="panel" id="charts1" style="height:300px;padding:0px;border:1px solid #ccc;"></div>
@@ -249,8 +249,8 @@ new BMap.Point(116.426498,39.983363),
 		markList.push(addMarker(plist[i]));//.setLabel(label);
 	}
 	
-	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.4});   //创建折线
-	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.4});   //创建折线
+	var polylineA = new BMap.Polyline(plistRoadA, {strokeColor:"#22ffcc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
+	var polylineB = new BMap.Polyline(plistRoadB, {strokeColor:"#ff22cc", strokeWeight:25, strokeOpacity:0.1});   //创建折线
 	
 	map.addOverlay(polylineA);
 	map.addOverlay(polylineB);
